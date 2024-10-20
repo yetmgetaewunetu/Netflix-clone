@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
 import axios from "../../../utils/axios";
-
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl, isLargeRow }) {
@@ -13,9 +12,10 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
     (async () => {
       try {
         const request = await axios.get(fetchUrl);
-
         setMovies(request.data.results);
-      } catch (err) {}
+      } catch (err) {
+        console.error(err);
+      }
     })();
   }, [fetchUrl]);
 
@@ -30,9 +30,8 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
                 src={`${baseUrl}${
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
-                key={index}
-                alt={movie.name}
-                className={`row_poster ${isLargeRow && "row_posterLarge}"} `}
+                alt={movie.name || movie.title || "Movie poster"}
+                className={`row_poster ${isLargeRow && "row_posterLarge"}`} // Fixed the className
               />
             </Link>
           );
