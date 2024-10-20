@@ -1,0 +1,35 @@
+.available {
+  padding: 0 10px 50px 10px;
+}
+h1 {
+  font-size: 2rem;
+  margin: 30px 10px;
+}
+p {
+  color: rgb(193, 181, 181);
+  width: 60%;
+  padding-left: 20px;
+  line-height: 2rem;
+  max-width: 500px;
+}
+.title {
+  color: red;
+  box-shadow: 2px 2px 4px red;
+  width: calc(200px + 200px);
+  margin: auto;
+  padding: 20px 100px;
+}
+.available > span {
+  margin: auto;
+  display: block;
+  size: 300px;
+}
+.load {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.load * {
+  width: 100%;
+}

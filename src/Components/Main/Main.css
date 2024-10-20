@@ -1,0 +1,78 @@
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* .playwrite-de-grund- {
+  font-family: "Playwrite DE Grund", cursive;
+  font-optical-sizing: auto;
+   font-weight: <weight>;
+    font-style: normal; 
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.banner {
+  position: relative;
+  backgroundposition: "center";
+  backgroundsize: "cover";
+  backgroundrepeat: "no-repeat";
+}
+.banner_contents {
+  position: absolute;
+  padding: 50px;
+  bottom: 0;
+  left: 0;
+  color: white;
+}
+.banner_title {
+  font-size: 70px;
+  font-family: "Indie Flower";
+}
+.banner_buttons {
+  display: flex;
+
+  gap: 20px;
+  margin-top: 50px;
+}
+.banner_button {
+  padding: 17px 25px;
+  width: auto;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: background 0.5s, border 0.5s;
+}
+.banner_button:nth-child(1) {
+  background: rgb(241, 239, 239);
+  color: #000;
+}
+.banner_button:nth-child(2) {
+  background: rgba(0, 0, 0, 0.6);
+}
+.banner_button:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  box-shadow: 2px 2px 3px white;
+}
+.movie_description {
+  font-size: 1.6rem;
+  width: 30vw;
+  font-weight: normal;
+  padding: 10px;
+  font-family: "Indie Flower";
+}
+.banner-fader {
+  height: 40%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
+}
