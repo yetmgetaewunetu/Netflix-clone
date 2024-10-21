@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
-import axios from "../../../utils/axios";
+// import axios from "../../../utils/axios";
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl, isLargeRow }) {
@@ -11,10 +11,17 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
   useEffect(() => {
     (async () => {
       try {
-        const request = await axios.get(fetchUrl);
-        setMovies(request.data.results);
+        const response = await fetch(`http://api.themoviedb.org/3${fetchUrl}`);
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        // console.log(data.results);
+        setMovies(data.results);
       } catch (err) {
-        console.error(err);
+        console.error("Fetch error:", err);
       }
     })();
   }, [fetchUrl]);
