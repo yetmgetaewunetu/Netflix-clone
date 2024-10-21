@@ -9,9 +9,9 @@ export default function SingleVideo() {
   const [trailerUrl, setTrailerUrl] = useState("");
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const APIKey = process.env.REACT_APP_API_KEY;
 
+  const APIKey = process.env.REACT_APP_API_KEY;
+  // console.log(id);
   const opts = {
     height: "500px",
     width: "100%",
@@ -26,14 +26,16 @@ export default function SingleVideo() {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}?api_key=${APIKey}&language=en-US`
+          `https://api.themoviedb.org/3/movie/${movieId}?api_key=${APIKey}`
         );
+        console.log(response);
         if (!response.ok) throw new Error("Failed to fetch movie details");
         const result = await response.json();
+        console.log(typeof result);
         setMovie(result);
       } catch (error) {
         console.error("Error fetching movie details:", error);
-        setError("Failed to load movie details.");
+        // setError("Failed to load movie details.");
       } finally {
         setLoading(false);
       }
@@ -43,14 +45,17 @@ export default function SingleVideo() {
 
   useEffect(() => {
     if (movie) {
+      // console.log("movie available");
       const trailerSetter = async (title) => {
         setLoading(true);
+
         try {
           const videoResponse = await fetch(
             `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKey}`
           );
           if (!videoResponse.ok) throw new Error("Failed to fetch trailer");
           const videoData = await videoResponse.json();
+          console.log("🚀 ~ trailerSetter ~ videoData:", videoData);
 
           const trailer = videoData.results?.find(
             (video) => video.site === "YouTube" && video.type === "Trailer"
@@ -61,7 +66,7 @@ export default function SingleVideo() {
           );
         } catch (error) {
           console.error("Error fetching the trailer:", error);
-          setError("Trailer not available.");
+
           setTrailerUrl("");
         } finally {
           setLoading(false);
@@ -70,7 +75,7 @@ export default function SingleVideo() {
       trailerSetter(movie.title || movie.name || movie.original_name);
     }
   }, [APIKey, id, movie]);
-
+  console.log(trailerUrl, movie);
   if (loading) {
     return (
       <div
@@ -85,10 +90,6 @@ export default function SingleVideo() {
         <ScaleLoader color="red" size={250} />
       </div>
     );
-  }
-
-  if (error) {
-    return <div className="error">{error}</div>;
   }
 
   return (
