@@ -11,7 +11,7 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch(`http://api.themoviedb.org/3${fetchUrl}`);
+        const response = await fetch(`https://api.themoviedb.org/3${fetchUrl}`);
         // console.log(response);
         if (!response.ok) {
           throw new Error("Network response was not ok");
