@@ -9,9 +9,7 @@ export default function SingleVideo() {
   const [trailerUrl, setTrailerUrl] = useState("");
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // New state for error handling
-
-  // Using environment variable for API Key
+  const [error, setError] = useState(null);
   const APIKey = process.env.REACT_APP_API_KEY;
 
   const opts = {
@@ -35,7 +33,7 @@ export default function SingleVideo() {
         setMovie(result);
       } catch (error) {
         console.error("Error fetching movie details:", error);
-        setError("Failed to load movie details."); // Set error state
+        setError("Failed to load movie details.");
       } finally {
         setLoading(false);
       }
@@ -63,8 +61,8 @@ export default function SingleVideo() {
           );
         } catch (error) {
           console.error("Error fetching the trailer:", error);
-          setError("Trailer not available."); // Set error state
-          setTrailerUrl(""); // Fallback in case of an error
+          setError("Trailer not available.");
+          setTrailerUrl("");
         } finally {
           setLoading(false);
         }
@@ -90,7 +88,7 @@ export default function SingleVideo() {
   }
 
   if (error) {
-    return <div className="error">{error}</div>; // Display error message
+    return <div className="error">{error}</div>;
   }
 
   return (
