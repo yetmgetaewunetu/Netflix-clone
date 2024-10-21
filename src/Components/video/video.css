@@ -33,3 +33,9 @@ p {
 .load * {
   width: 100%;
 }
+.not-available h1 {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
