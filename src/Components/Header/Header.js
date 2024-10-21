@@ -11,10 +11,17 @@ export default function Header() {
     <div className={classes.header_outer_container}>
       <div className={classes.header_container}>
         <div className={classes.header_left}>
-          <img className={classes.logo} src={logo || "Netflix"} alt="" />
+          <img
+            style={{
+              height: window.innerWidth > 600 ? "8vh" : "5vh",
+            }}
+            className={classes.logo}
+            src={logo || "Netflix"}
+            alt=""
+          />
 
           <ul>
-            <li className={classes.link}>Home</li>
+            <li className={classes.link}>Home</li>{" "}
             <li className={classes.link}>TVShows</li>
             <li className={classes.link}>Movies</li>
             <li className={classes.link}>Latest</li>
@@ -22,7 +29,12 @@ export default function Header() {
             <li className={classes.link}>Browse by Languages</li>
           </ul>
         </div>
-        <div className={classes.header_right}>
+        <div
+          style={{
+            display: window.innerWidth > 500 ? "flex" : "none !important",
+          }}
+          className={classes.header_right}
+        >
           <ul>
             <li>
               <SearchIcon />{" "}

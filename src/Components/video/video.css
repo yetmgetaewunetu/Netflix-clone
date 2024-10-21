@@ -10,12 +10,12 @@ p {
   width: 60%;
   padding-left: 20px;
   line-height: 2rem;
-  max-width: 500px;
+  display: block;
 }
 .title {
   color: red;
-  box-shadow: 2px 2px 4px red;
-  width: calc(200px + 200px);
+
+  width: calc(400px + 200px);
   margin: auto;
   padding: 20px 100px;
 }
@@ -33,7 +33,7 @@ p {
 .load * {
   width: 100%;
 }
-.not-available h1 {
+.not-available .title {
   margin: 50px auto;
   display: flex;
   justify-content: center;

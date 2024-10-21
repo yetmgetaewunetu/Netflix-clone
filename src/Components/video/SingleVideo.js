@@ -101,14 +101,29 @@ export default function SingleVideo() {
           </div>
           <div>
             <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
-            <p>{movie?.overview}</p>
+            <p
+              style={{
+                width:
+                  window.innerWidth > 600
+                    ? "500px !important"
+                    : "96% !important",
+              }}
+            >
+              {movie?.overview}
+            </p>
           </div>
         </div>
       ) : (
         <div className="not-available">
           <h1 className="title">The Movie Trailer is not available for now</h1>
           <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
-          <p>{movie?.overview}</p>
+          <p
+            style={{
+              width: window.innerWidth > 600 ? "500px !important" : `90%`,
+            }}
+          >
+            {movie?.overview}
+          </p>
         </div>
       )}
     </div>

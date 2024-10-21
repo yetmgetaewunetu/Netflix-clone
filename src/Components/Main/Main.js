@@ -42,7 +42,6 @@ export default function Main() {
           </Link>
           <button className="banner_button">My List</button>
         </div>
-        {/* <h1 className="movie_description">{truncate(movie?.overview, 150)}</h1> */}
       </div>
       <div className="banner-fader"></div>
     </div>
